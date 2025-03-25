@@ -152,9 +152,9 @@ func go_back() -> void:
 func _exit_tree() -> void:
 	Data.reset_current_routine()
 
+	if task_in_progress:
+		current_task._cleanup()
+
 func _process(_delta: float) -> void:
     self.scroll_vertical = self.get_v_scroll_bar().max_value
 
-	
-	if task_in_progress:
-		current_task._cleanup()
